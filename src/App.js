@@ -4,13 +4,14 @@ import './App.css';
 import About from './Components/About/About';
 import Blogs from './Components/Blogs/Blogs';
 import DashBoard from './Components/DashBoard/DashBoard';
+import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Reviews from './Components/Reviews/Reviews';
 
 function App() {
   return (
     <div className="App">
-     <h1>amr nam sultan razib uddin</h1>
+     <Header/>
 
      <Routes>
      <Route path="/" element={<Home/>} />
