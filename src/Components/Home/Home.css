@@ -30,3 +30,11 @@
 .article p{
     font-size: 20px;
 }
+button{
+    font-size: 15px;
+    color: aliceblue;
+    background-color: rgb(42, 165, 124);
+    padding: 15px;
+    border-radius: 9px;
+    border: none;
+}

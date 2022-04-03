@@ -18,6 +18,11 @@ const Home = () => {
                 </div>
            </div>
 
+           <div>
+               <h1>Customer Reviews (3)</h1>
+               <button>See All Reviews</button>
+           </div>
+
 
         </div>
     );

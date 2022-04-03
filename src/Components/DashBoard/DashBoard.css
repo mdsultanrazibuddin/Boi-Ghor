@@ -1,0 +1,14 @@
+.text{
+    color:#7b75e7;
+    text-align: center;
+    margin: 50px;
+}
+.chart{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+.line-chart{
+    margin-left: 50px;
+}
