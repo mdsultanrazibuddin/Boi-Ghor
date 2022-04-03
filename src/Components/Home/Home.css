@@ -1,0 +1,32 @@
+.container{
+
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    text-align: left;
+    margin: 20px;
+    margin-top: 200px;
+    padding: 20px;
+}
+.Image{
+    width:70%;
+    
+    border-radius: 30px;
+   margin-left: 120px;
+    /* padding: 100px; */
+}
+.article{
+    width: 50%;
+    text-align: left;
+}
+.article h1{
+    font-size: 50px;
+    color: rgb(2, 219, 219);
+}
+.article h2{
+    color: rgb(53, 110, 91);
+    font-size: 30px;
+}
+.article p{
+    font-size: 20px;
+}
