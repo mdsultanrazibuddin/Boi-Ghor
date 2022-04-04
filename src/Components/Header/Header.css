@@ -1,7 +1,7 @@
 .navbar{
    
-    color: rgb(247, 247, 252);
-    background-color: rgb(50, 187, 141);
+    color: rgb(1, 1, 17);
+    background-color: rgb(90, 202, 202);
     text-decoration: none;
     border:none;
     padding: 15px;
@@ -14,7 +14,7 @@
     
 }
 .navbar:hover{
-    background-color:rgb(30, 134, 100);
+    background-color:rgb(92, 175, 175);
 }
 .link{
     margin-top: 50px;
