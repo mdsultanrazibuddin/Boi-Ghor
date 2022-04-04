@@ -1,29 +1,30 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 
 import './Home.css'
 import Image from "../../Images/recharger-your-battery.jpg"
 import Review from '../Review/Review';
 
 import { Link } from 'react-router-dom';
+import useReview from '../../hooks/useReview';
 
 
 const Home = () => {
-    const [review, setReview] = useState([])
+    const [review] = useReview([])
+    // const [review, setReview] = useState([])
 
-    useEffect(() =>{
-        fetch ('fakeData.json')
-        .then(res => res.json())
-        .then(data => setReview(data))
-    },[])
-    // const allReview = () =>{
-    //   <Reviews review = {review}/>
+    // useEffect(() =>{
+    //     fetch ('fakeData.json')
+    //     .then(res => res.json())
+    //     .then(data => setReview(data))
+    // },[])
+   
            
      
         
      
     // }
     return (
-        <div>
+        <div className='home'>
            <div className='container'>
                 <div className='article'>
                     <h1> Recharge Your Down Battery</h1>
