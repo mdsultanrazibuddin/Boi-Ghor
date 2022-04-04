@@ -37,7 +37,19 @@ button{
     padding: 15px;
     border-radius: 9px;
     border: none;
+    margin-bottom: 50px;
 }
 button:hover{
     background-color:rgb(92, 175, 175);
+}
+
+.card-container{
+    display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   
+}
+.text1{
+    margin-top: 50px;
+    font-size: 40px;
+    color:rgb(53, 110, 91) ;
 }

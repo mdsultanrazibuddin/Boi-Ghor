@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import './Home.css'
 import Image from "../../Images/recharger-your-battery.jpg"
-import Reviews from '../Reviews/Reviews';
+import Review from '../Review/Review';
+
+import { Link } from 'react-router-dom';
+
 
 const Home = () => {
     const [review, setReview] = useState([])
@@ -12,6 +15,13 @@ const Home = () => {
         .then(res => res.json())
         .then(data => setReview(data))
     },[])
+    // const allReview = () =>{
+    //   <Reviews review = {review}/>
+           
+     
+        
+     
+    // }
     return (
         <div>
            <div className='container'>
@@ -27,12 +37,19 @@ const Home = () => {
            </div>
 
            <div>
-               <h1>Customer Reviews</h1>
+               <h1 className='text1'>Customer Reviews</h1>
 
-               {
-                   review.slice(0, 3).map(review => <Reviews review = {review}></Reviews>)
-               }
-               <button>See All Reviews</button>
+              <div className='card-container'>
+                {
+                    review.slice(0, 3).map(review => <Review
+                        key = {review.id} 
+                        review = {review}>
+                    </Review>)
+                }    
+              </div>
+             
+              <Link className='navbar' to="/Reviews"> See All Reviews</Link>
+              
            </div>
 
 
