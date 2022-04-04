@@ -1,70 +1,50 @@
-import React from 'react';
-import { Line, LineChart, Pie, PieChart, XAxis, YAxis } from 'recharts';
+import React, { useEffect, useState } from 'react';
+import { CartesianGrid, Legend, Line, LineChart, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import './DashBoard.css'
 
 const DashBoard = () => {
-    const data =[
-        {
-            "month": "Mar",
-            "investment": 100000,
-            "sell": 241,
-            "revenue": 10401
-        },
-        {
-            "month": "Apr",
-            "investment": 200000,
-            "sell": 423,
-            "revenue": 24500
-        },
-        {
-            "month": "May",
-            "investment": 500000,
-            "sell": 726,
-            "revenue": 67010
-        },
-        {
-            "month": "Jun",
-            "investment": 500000,
-            "sell": 529,
-            "revenue": 40405
-        },
-        {
-            "month": "Jul",
-            "investment": 600000,
-            "sell": 601,
-            "revenue": 50900
-        },
-        {
-            "month": "Aug",
-            "investment": 700000,
-            "sell": 670,
-            "revenue": 61000
-        }
-    ]
+    
+    const [chart, setChart]= useState([0])
+    useEffect(() =>{
+        fetch('data.json')
+        .then(res => res.json())
+        .then(data => setChart(data))
+    }, [])
+    
+        return (
+            <div className='chart'>
+    
+                             {/* LineChart */}
+                <div>
+                        <h1 className='text'>Month Wise Sell</h1>
+                  <LineChart width={350} height={350} data={chart}
+                    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="month" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Line type="monotone" dataKey="sell" stroke="#8884d8" />
+    
+                  </LineChart>
+                </div>
+                
+                            {/* PieChart  */}
+    
+                <div>
+                    <h1 className='text'>Investment vs Revenue</h1>
+                    <ResponsiveContainer width="100%" height="100%">
+                        <PieChart width={300} height={300}>
+                            <Pie data={chart} dataKey="investment" cx="50%" cy="50%" outerRadius={60} fill="#8884d8" />
+                            <Pie data={chart} dataKey="revenue" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#82ca9d" label />
+                        </PieChart>
+                    </ResponsiveContainer>
+                </div>
+            </div>
+        );
+    
    
-    return (
-        <div className='chart'>
-
-                         {/* LineChart */}
-            <div>
-            <h1 className='text'>Month Wise Sell</h1>
-            <LineChart className='line-chart' width={300} height={300} data={data}>
-               <Line dataKey={'sell'} fill="#7b75e7" />
-               <XAxis dataKey={'month'} fill=""/>
-               <YAxis fill='#82ca9d'/>
-            </LineChart>
-            </div>
-                        {/* PieChart  */}
-
-            <div>
-                <h1 className='text'>Investment vs Revenue</h1>
-                <PieChart  width={730} height={250}>
-                    <Pie data={data} dataKey="investment" nameKey="name" cx="50%" cy="50%" outerRadius={50} fill="#8884d8"/>
-                    <Pie data={data} dataKey="revenue" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label/>
-                </PieChart>
-            </div>
-        </div>
-    );
+    
 };
 
 export default DashBoard;
