@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './Home.css'
 import Image from "../../Images/recharger-your-battery.jpg"
+import Reviews from '../Reviews/Reviews';
 
 const Home = () => {
+    const [review, setReview] = useState([])
+
+    useEffect(() =>{
+        fetch ('fakeData.json')
+        .then(res => res.json())
+        .then(data => setReview(data))
+    },[])
     return (
         <div>
            <div className='container'>
@@ -19,7 +27,11 @@ const Home = () => {
            </div>
 
            <div>
-               <h1>Customer Reviews (3)</h1>
+               <h1>Customer Reviews</h1>
+
+               {
+                   review.slice(0, 3).map(review => <Reviews review = {review}></Reviews>)
+               }
                <button>See All Reviews</button>
            </div>
 

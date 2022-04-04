@@ -8,6 +8,7 @@
     grid-template-columns: 1fr 1fr;
     margin-top: 150px;
     margin-bottom: 100px;
+    margin-left: 50px;
 }
 .line-chart{
     margin-left: 50px;
